@@ -33,13 +33,13 @@ This library is a ReactNative Bridge around native [MaterialFilePicker](https://
 ```javascript
 RNFileSelector.Show(
     {
-    title: 'Select File',
-    onDone: (path) => {
-        console.log('file selected: ' + path)
-    },
-    onCancel: () => {
-        console.log('cancelled')
-    }
+        title: 'Select File',
+        onDone: (path) => {
+            console.log('file selected: ' + path)
+        },
+        onCancel: () => {
+            console.log('cancelled')
+        }
     }
 )
 ```
