@@ -1,9 +1,7 @@
 
-#if __has_include("RCTBridgeModule.h")
-#import "RCTBridgeModule.h"
-#else
-#import <React/RCTBridgeModule.h>
-#endif
+#import "RCTUIManager.h"
+
+#import <FileBrowser/FileBrowser-Swift.h>
 
 @interface RNFileSelector : NSObject <RCTBridgeModule>
 
