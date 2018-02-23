@@ -17,7 +17,17 @@ import RNFileSelector from 'react-native-file-selector'
 
 export default class App extends Component<Props> {
   _onPress () {
-    RNFileSelector.Show()
+    RNFileSelector.Show(
+      {
+        title: 'Select File',
+        onDone: (path) => {
+          console.log('file selected: ' + path)
+        },
+        onCancel: () => {
+          console.log('cancelled')
+        }
+      }
+    )
   }
 
   render() {

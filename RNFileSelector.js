@@ -7,8 +7,54 @@ import PropTypes from "prop-types";
 const { RNFileSelector } = NativeModules;
 
 class FileSelector extends Component {
-  static Show(ref, props) {
-    RNFileSelector.Show()
+  static propTypes = {
+    ...ViewPropTypes,
+
+    filter: PropTypes.string,
+    filterDirectories: PropTypes.bool,
+    rootPath: PropTypes.string,
+    path: PropTypes.string,
+    hiddenFiles: PropTypes.bool,
+    closeMenu: PropTypes.bool,
+    title: PropTypes.string,
+    onDone: PropTypes.func,
+    onCancel: PropTypes.func
+  };
+
+  static defaultProps = {
+    visible: false,
+
+    filter: "",
+    filterDirectories: false,
+    rootPath: "",
+    path: '',
+    hiddenFiles: false,
+    closeMenu: true,
+    title: ''
+  };
+
+  static Show(props) {
+    if (props.filter === undefined) {
+        props.filter = FileSelector.defaultProps.filter
+    } if (props.filterDirectories === undefined) {
+        props.filterDirectories = FileSelector.defaultProps.filterDirectories
+    } if (props.rootPath === undefined) {
+        props.rootPath = FileSelector.defaultProps.rootPath
+    } if (props.path === undefined) {
+        props.path = FileSelector.defaultProps.path;
+    } if (props.hiddenFiles === undefined) {
+        props.hiddenFiles = FileSelector.defaultProps.hiddenFiles
+    } if (props.closeMenu === undefined) {
+        props.closeMenu = FileSelector.defaultProps.closeMenu
+    } if (props.title === undefined) {
+        props.title = FileSelector.defaultProps.title
+    }
+
+    RNFileSelector.Show(props, path => {
+        props.onDone && props.onDone(path)
+      }, () => {
+        props.onCancel && props.onCancel()
+      });
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -28,7 +74,6 @@ class FileSelector extends Component {
   }
 
   _show() {
-
     if (this.props.visible) {
     }
   }
@@ -38,13 +83,5 @@ class FileSelector extends Component {
   }
 }
 
-FileSelector.propTypes = {
-  ...ViewPropTypes,
-
-};
-
-FileSelector.defaultProps = {
-  visible: false
-};
 
 export default FileSelector;
