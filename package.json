@@ -16,6 +16,7 @@
         "url": "https://github.com/prscX/react-native-file-selector.git"
     },
     "dependencies": {
+        "immutable": "3.8.2"
     },
     "devDependencies": {
         "prettier-pack": "0.0.5"

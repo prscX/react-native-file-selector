@@ -68,7 +68,14 @@ RNFileSelector.Show(
 ```
 
 - React Way
-`Working In Progress`
+
+```javascript
+<RNFileSelector title={"Select File"} visible={this.state.visible} onDone={() => {
+    console.log("file selected: " + path);
+}} onCancel={() => {
+    console.log("cancelled");
+}}/>
+```
 
 
 ## Props
@@ -85,6 +92,7 @@ RNFileSelector.Show(
 | `filterDirectories`      | `bool`     |         | Filter should be applied on directories or not 
 | `onDone`      | `func`     |         | Function called when file is selected       |  |
 | `onCancel`      | `func`     |         | Function called when file selector is closed without selecting any file | |
+| `visible`      | `bool`     |    false     | To invoke file selector | |
 
 
 ## TO DO

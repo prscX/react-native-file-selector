@@ -16,6 +16,14 @@ import {
 import RNFileSelector from 'react-native-file-selector'
 
 export default class App extends Component<Props> {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      visible: false
+    }
+  }
+
   _onPress () {
     RNFileSelector.Show(
       {
@@ -32,8 +40,17 @@ export default class App extends Component<Props> {
 
   render() {
     return <View style={styles.container}>
-        <TouchableOpacity onPress={this._onPress}>
+        <TouchableOpacity onPress={() => {
+            // this._onPress()
+
+            this.setState({ visible: true });
+          }}>
           <Text>Click</Text>
+          <RNFileSelector title={"Select File"} visible={this.state.visible} onDone={() => {
+              console.log("file selected: " + path);
+            }} onCancel={() => {
+              console.log("cancelled");
+            }}/>
         </TouchableOpacity>
       </View>;
   }
