@@ -143,6 +143,7 @@ repositories {
 }
 
 dependencies {
+    compile project(':react-native-fs')
     compile project(':react-native-file-selector')
     compile fileTree(dir: "libs", include: ["*.jar"])
     compile 'com.android.support:appcompat-v7:25.3.1'

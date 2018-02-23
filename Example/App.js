@@ -15,6 +15,12 @@ import {
 
 import RNFileSelector from 'react-native-file-selector'
 
+import RNFS from 'react-native-fs'
+
+import animatedPhoto from './assets/animated_photo.gif'
+import photo from './assets/photo.jpg'
+// import info from './assets/nfo.plist'
+
 export default class App extends Component<Props> {
   constructor (props) {
     super(props)
@@ -36,6 +42,39 @@ export default class App extends Component<Props> {
         }
       }
     )
+  }
+
+  componentDidMount () {
+
+    // create a path you want to write to
+    let animatedPhotoPath = RNFS.DocumentDirectoryPath + "/animated_photo.gif";
+    let photoPath = RNFS.DocumentDirectoryPath + "/photo.jpg";
+    // let infoPath = RNFS.DocumentDirectoryPath + "/info.plist";
+
+    // write the file
+    RNFS.writeFile(animatedPhotoPath, animatedPhoto, "utf8")
+      .then(success => {
+        console.log("FILE WRITTEN!");
+      })
+      .catch(err => {
+        console.log(err.message);
+      });
+
+    RNFS.writeFile(photoPath, photo, "utf8")
+      .then(success => {
+        console.log("FILE WRITTEN!");
+      })
+      .catch(err => {
+        console.log(err.message);
+      });
+
+    // RNFS.writeFile(infoPath, info, "utf8")
+    //   .then(success => {
+    //     console.log("FILE WRITTEN!");
+    //   })
+    //   .catch(err => {
+    //     console.log(err.message);
+    //   });
   }
 
   render() {

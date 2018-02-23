@@ -25,9 +25,9 @@ RCT_EXPORT_METHOD(Show:(nonnull NSDictionary *)props onDone:(RCTResponseSenderBl
         NSString *title = [props objectForKey: @"title"];
         
         id<UIApplicationDelegate> app = [[UIApplication sharedApplication] delegate];
-        FileBrowser *fileBrowser = [[FileBrowser alloc] initWithInitialPath: nil allowEditing: YES showCancelButton: [closeMenu boolValue]];
+        FileBrowser *fileBrowser = [[FileBrowser alloc] initWithInitialPath: nil allowEditing: NO showCancelButton: [closeMenu boolValue]];
         [fileBrowser setDidSelectFile:^(FBFile * _Nonnull file) {
-            NSLog(@"");
+            onDone(@[[[file filePath] absoluteString]]);
         }];
         
         [((UINavigationController*) app.window.rootViewController) presentViewController:fileBrowser animated:YES completion:nil];
