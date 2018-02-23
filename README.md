@@ -12,12 +12,21 @@
 This library is a ReactNative Bridge around native [MaterialFilePicker](https://github.com/nbsp-team/MaterialFilePicker) file picker. It allows you to natively select/pick file from device file system. 
 
 
-- Android: [MaterialFilePicker](https://github.com/nbsp-team/MaterialFilePicker) 
+- Android: [MaterialFilePicker](https://github.com/nbsp-team/MaterialFilePicker)
+
+> **Note**: It allows you to pick file without using Intent/Third Party Software
 
 ![](https://i.imgur.com/mjxs05n.png)
 
+
+## Getting started
+$ npm install react-native-file-selector --save
+
+$ react-native link react-native-file-selector
+
 ## TO DO
 - iOS Support
+
 
 ## Credits
 
