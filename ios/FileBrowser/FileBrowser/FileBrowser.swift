@@ -16,21 +16,21 @@ open class FileBrowser: UINavigationController {
     var fileList: FileListViewController?
 
     /// File types to exclude from the file browser.
-    open var excludesFileExtensions: [String]? {
+    @objc open var excludesFileExtensions: [String]? {
         didSet {
             parser.excludesFileExtensions = excludesFileExtensions
         }
     }
     
     /// File paths to exclude from the file browser.
-    open var excludesFilepaths: [URL]? {
+    @objc open var excludesFilepaths: [URL]? {
         didSet {
             parser.excludesFilepaths = excludesFilepaths
         }
     }
     
     /// Override default preview and actionsheet behaviour in favour of custom file handling.
-    open var didSelectFile: ((FBFile) -> ())? {
+    @objc open var didSelectFile: ((FBFile) -> ())? {
         didSet {
             fileList?.didSelectFile = didSelectFile
         }
@@ -48,7 +48,7 @@ open class FileBrowser: UINavigationController {
     ///   - initialPath: NSURL filepath to containing directory.
     ///   - allowEditing: Whether to allow editing.
     ///   - showCancelButton: Whether to show the cancel button.
-    public convenience init(initialPath: URL? = nil, allowEditing: Bool = false, showCancelButton: Bool = true) {
+    @objc public convenience init(initialPath: URL? = nil, allowEditing: Bool = false, showCancelButton: Bool = true) {
         
         let validInitialPath = initialPath ?? FileParser.sharedInstance.documentsURL()
         
