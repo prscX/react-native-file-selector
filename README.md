@@ -20,9 +20,49 @@ This library is a ReactNative Bridge around native [MaterialFilePicker](https://
 
 
 ## Getting started
-$ npm install react-native-file-selector --save
+- `$ npm install react-native-file-selector --save`
 
-$ react-native link react-native-file-selector
+- `$ react-native link react-native-file-selector`
+
+## Usage
+
+`import RNFileSelector from 'react-native-file-selector';`
+
+- API Way
+
+```javascript
+RNFileSelector.Show(
+    {
+    title: 'Select File',
+    onDone: (path) => {
+        console.log('file selected: ' + path)
+    },
+    onCancel: () => {
+        console.log('cancelled')
+    }
+    }
+)
+```
+
+- React Way
+`Working In Progress`
+
+
+## Props
+
+
+| Prop              | Type       | Default | Note                                                                                                       |
+| ----------------- | ---------- | ------- | ---------------------------------------------------------------------------------------------------------- |
+| `title`       | `string`     |         | Title on the toolbar
+| `closeMenu`      | `string`     |   true      | Color of tint
+| `hiddenFiles`       | `bool`     |  false       | If true it shows hidden files as well                                                            |
+| `rootPath`     | `string` |         | Root path of device storage                                                      |
+| `path` | `string` |         | Path of directory                                                   |  |
+| `filter`    | `string`     |         | Filter to sort the files                                        |  |
+| `filterDirectories`      | `bool`     |         | Filter should be applied on directories or not 
+| `onDone`      | `func`     |         | Function called when file is selected       |  |
+| `onCancel`      | `func`     |         | Function called when file selector is closed without selecting any file | |
+
 
 ## TO DO
 - iOS Support
