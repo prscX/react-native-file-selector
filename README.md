@@ -20,9 +20,32 @@ This library is a ReactNative Bridge around native [MaterialFilePicker](https://
 
 
 ## Getting started
-- `$ npm install react-native-file-selector --save`
+`$ npm install react-native-file-selector --save`
 
-- `$ react-native link react-native-file-selector`
+`$ react-native link react-native-file-selector`
+
+#### **Android**
+
+- Add below snippet in your app `build.gradle` file
+
+```
+repositories {
+    maven {
+        url  "http://dl.bintray.com/lukaville/maven"
+    }
+}
+```
+
+- Add below color attributes in your app `res/color.xml`. You can provide your own color codes
+
+```
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+```
+
+> **Note**: Android library works `compileSdkVersion > 25`
+
 
 ## Usage
 
