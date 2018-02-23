@@ -41,12 +41,12 @@ export default class App extends Component<Props> {
   render() {
     return <View style={styles.container}>
         <TouchableOpacity onPress={() => {
-            // this._onPress()
+            this._onPress()
 
-            this.setState({ visible: true });
+            // this.setState({ visible: true });
           }}>
           <Text>Click</Text>
-          <RNFileSelector title={"Select File"} visible={this.state.visible} onDone={() => {
+          <RNFileSelector title={"Select File"} visible={this.state.visible} onDone={(path) => {
               console.log("file selected: " + path);
             }} onCancel={() => {
               console.log("cancelled");

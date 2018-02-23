@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { ViewPropTypes, NativeModules } from "react-native";
 import PropTypes from "prop-types";
 
+import { is } from 'immutable'
     
 const { RNFileSelector } = NativeModules;
 
@@ -75,6 +76,17 @@ class FileSelector extends Component {
 
   _show() {
     if (this.props.visible) {
+      FileSelector.Show({
+        filter: this.props.filter,
+        filterDirectories: this.props.filterDirectories,
+        rootPath: this.props.rootPath,
+        path: this.props.path,
+        hiddenFiles: this.props.hiddenFiles,
+        closeMenu: this.props.closeMenu,
+        title: this.props.title,
+        onDone: this.props.onDone,
+        onCancel: this.props.onCancel
+      });
     }
   }
 
