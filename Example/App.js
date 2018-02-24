@@ -33,7 +33,10 @@ export default class App extends Component<Props> {
   _onPress () {
     RNFileSelector.Show(
       {
+        path: RNFS.DocumentDirectoryPath + '/assets',
         title: 'Select File',
+        closeMenu: true,
+        editable: true,
         onDone: (path) => {
           console.log('file selected: ' + path)
         },
@@ -50,6 +53,7 @@ export default class App extends Component<Props> {
     let animatedPhotoPath = RNFS.DocumentDirectoryPath + "/animated_photo.gif";
     let photoPath = RNFS.DocumentDirectoryPath + "/photo.jpg";
     // let infoPath = RNFS.DocumentDirectoryPath + "/info.plist";
+    let assetsPath = RNFS.DocumentDirectoryPath + '/assets'
 
     // write the file
     RNFS.writeFile(animatedPhotoPath, animatedPhoto, "utf8")
@@ -68,7 +72,30 @@ export default class App extends Component<Props> {
         console.log(err.message);
       });
 
-    // RNFS.writeFile(infoPath, info, "utf8")
+
+    RNFS.mkdir(assetsPath)
+      .then(success => {
+        console.log('DIRECTORY CREATED')
+
+        RNFS.writeFile(assetsPath + "/animated_photo.gif", animatedPhoto, "utf8")
+          .then(success => {
+            console.log("DIRECTORY WRITTEN!");
+          })
+          .catch(err => {
+            console.log(err.message);
+          });
+
+        RNFS.writeFile(assetsPath + "/photo.jpg", photo, "utf8")
+          .then(success => {
+            console.log("DIRECTORY WRITTEN!");
+          })
+          .catch(err => {
+            console.log(err.message);
+          });
+      })
+
+     
+      // RNFS.writeFile(infoPath, info, "utf8")
     //   .then(success => {
     //     console.log("FILE WRITTEN!");
     //   })

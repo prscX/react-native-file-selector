@@ -18,17 +18,24 @@ RCT_EXPORT_METHOD(Show:(nonnull NSDictionary *)props onDone:(RCTResponseSenderBl
         
         NSString *filter = [props objectForKey: @"filter"];
         NSNumber *filterDirectories = [props objectForKey: @"filterDirectories"];
-        NSString *rootPath = [props objectForKey: @"rootPath"];
         NSString *path = [props objectForKey: @"path"];
         NSNumber *hiddenFiles = [props objectForKey: @"hiddenFiles"];
         NSNumber *closeMenu = [props objectForKey: @"closeMenu"];
         NSString *title = [props objectForKey: @"title"];
+        NSNumber *editable = [props objectForKey: @"editable"];
+        
+        NSURL *url = nil;
+        if ([path length] > 0) {
+            url = [NSURL URLWithString: path];
+        }
         
         id<UIApplicationDelegate> app = [[UIApplication sharedApplication] delegate];
-        FileBrowser *fileBrowser = [[FileBrowser alloc] initWithInitialPath: nil allowEditing: NO showCancelButton: [closeMenu boolValue]];
+        FileBrowser *fileBrowser = [[FileBrowser alloc] initWithInitialPath: url allowEditing: [editable boolValue] showCancelButton: [closeMenu boolValue]];
         [fileBrowser setDidSelectFile:^(FBFile * _Nonnull file) {
             onDone(@[[[file filePath] absoluteString]]);
         }];
+        
+        
         
         [((UINavigationController*) app.window.rootViewController) presentViewController:fileBrowser animated:YES completion:nil];
     });

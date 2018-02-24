@@ -13,13 +13,13 @@ class FileSelector extends Component {
 
     filter: PropTypes.string,
     filterDirectories: PropTypes.bool,
-    rootPath: PropTypes.string,
     path: PropTypes.string,
     hiddenFiles: PropTypes.bool,
     closeMenu: PropTypes.bool,
     title: PropTypes.string,
     onDone: PropTypes.func,
-    onCancel: PropTypes.func
+    onCancel: PropTypes.func,
+    editable: PropTypes.bool
   };
 
   static defaultProps = {
@@ -27,11 +27,11 @@ class FileSelector extends Component {
 
     filter: "",
     filterDirectories: false,
-    rootPath: "",
     path: '',
     hiddenFiles: false,
     closeMenu: true,
-    title: ''
+    title: '',
+    editable: false
   };
 
   static Show(props) {
@@ -39,8 +39,6 @@ class FileSelector extends Component {
         props.filter = FileSelector.defaultProps.filter
     } if (props.filterDirectories === undefined) {
         props.filterDirectories = FileSelector.defaultProps.filterDirectories
-    } if (props.rootPath === undefined) {
-        props.rootPath = FileSelector.defaultProps.rootPath
     } if (props.path === undefined) {
         props.path = FileSelector.defaultProps.path;
     } if (props.hiddenFiles === undefined) {
@@ -49,6 +47,8 @@ class FileSelector extends Component {
         props.closeMenu = FileSelector.defaultProps.closeMenu
     } if (props.title === undefined) {
         props.title = FileSelector.defaultProps.title
+    } if (props.editable === undefined) {
+        props.editable = FileSelector.defaultProps.editable
     }
 
     RNFileSelector.Show(props, path => {
@@ -79,11 +79,11 @@ class FileSelector extends Component {
       FileSelector.Show({
         filter: this.props.filter,
         filterDirectories: this.props.filterDirectories,
-        rootPath: this.props.rootPath,
         path: this.props.path,
         hiddenFiles: this.props.hiddenFiles,
         closeMenu: this.props.closeMenu,
         title: this.props.title,
+        editable: this.props.editable,
         onDone: this.props.onDone,
         onCancel: this.props.onCancel
       });
