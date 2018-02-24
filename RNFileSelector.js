@@ -1,6 +1,6 @@
 
 import React, { Component } from "react";
-import { ViewPropTypes, NativeModules } from "react-native";
+import { ViewPropTypes, NativeModules, Platform } from "react-native";
 import PropTypes from "prop-types";
 
 import { is } from 'immutable'
@@ -25,7 +25,6 @@ class FileSelector extends Component {
   static defaultProps = {
     visible: false,
 
-    filter: "",
     filterDirectories: false,
     path: '',
     hiddenFiles: false,
@@ -49,6 +48,14 @@ class FileSelector extends Component {
         props.title = FileSelector.defaultProps.title
     } if (props.editable === undefined) {
         props.editable = FileSelector.defaultProps.editable
+    }
+
+    if (props.filter === undefined) {
+      if (Platform.OS === 'ios') {
+        props.filter = []
+      } else if (Platform.OS === undefined) {
+        props.filter = ''
+      }
     }
 
     RNFileSelector.Show(props, path => {

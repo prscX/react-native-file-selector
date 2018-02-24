@@ -33,7 +33,8 @@ export default class App extends Component<Props> {
   _onPress () {
     RNFileSelector.Show(
       {
-        path: RNFS.DocumentDirectoryPath + '/assets',
+        path: RNFS.DocumentDirectoryPath,
+        filter: ['gif', 'jpg'],
         title: 'Select File',
         closeMenu: true,
         editable: true,

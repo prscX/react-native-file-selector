@@ -16,7 +16,7 @@ RCT_EXPORT_METHOD(Show:(nonnull NSDictionary *)props onDone:(RCTResponseSenderBl
     
     dispatch_async(dispatch_get_main_queue(), ^{
         
-        NSString *filter = [props objectForKey: @"filter"];
+        NSArray *filter = [props objectForKey: @"filter"];
         NSNumber *filterDirectories = [props objectForKey: @"filterDirectories"];
         NSString *path = [props objectForKey: @"path"];
         NSNumber *hiddenFiles = [props objectForKey: @"hiddenFiles"];
@@ -25,9 +25,7 @@ RCT_EXPORT_METHOD(Show:(nonnull NSDictionary *)props onDone:(RCTResponseSenderBl
         NSNumber *editable = [props objectForKey: @"editable"];
         
         NSURL *url = nil;
-        if ([path length] > 0) {
-            url = [NSURL URLWithString: path];
-        }
+        if ([path length] > 0) url = [NSURL URLWithString: path];
         
         id<UIApplicationDelegate> app = [[UIApplication sharedApplication] delegate];
         FileBrowser *fileBrowser = [[FileBrowser alloc] initWithInitialPath: url allowEditing: [editable boolValue] showCancelButton: [closeMenu boolValue]];
@@ -35,7 +33,12 @@ RCT_EXPORT_METHOD(Show:(nonnull NSDictionary *)props onDone:(RCTResponseSenderBl
             onDone(@[[[file filePath] absoluteString]]);
         }];
         
+        NSMutableArray *filterExtensions = [[NSMutableArray alloc] init];
+        for (int i = 0;i < filter.count; i++) {
+            [filterExtensions addObject: [filter objectAtIndex: i]];
+        }
         
+        [fileBrowser setExcludesFileExtensions: filterExtensions];
         
         [((UINavigationController*) app.window.rootViewController) presentViewController:fileBrowser animated:YES completion:nil];
     });
