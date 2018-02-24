@@ -53,7 +53,7 @@ class FileSelector extends Component {
     if (props.filter === undefined) {
       if (Platform.OS === 'ios') {
         props.filter = []
-      } else if (Platform.OS === undefined) {
+      } else if (Platform.OS === 'android') {
         props.filter = ''
       }
     }

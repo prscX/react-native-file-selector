@@ -31,10 +31,18 @@ export default class App extends Component<Props> {
   }
 
   _onPress () {
+    let filter;
+    if (Platform.OS === 'ios') {
+      filter = ["gif", "jpg"];
+    } else if (Platform.OS === 'android') {
+      filter = ".*\\.jpg$";
+    }
+
+
     RNFileSelector.Show(
       {
         path: RNFS.DocumentDirectoryPath,
-        filter: ['gif', 'jpg'],
+        filter: filter,
         title: 'Select File',
         closeMenu: true,
         editable: true,

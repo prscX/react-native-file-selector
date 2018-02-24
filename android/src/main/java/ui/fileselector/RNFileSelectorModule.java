@@ -81,7 +81,6 @@ public class RNFileSelectorModule extends ReactContextBaseJavaModule {
 
     String filter = props.getString("filter");
     boolean filterDirectories = props.getBoolean("filterDirectories");
-    String rootPath = props.getString("rootPath");
     String path = props.getString("path");
     boolean hiddenFiles = props.getBoolean("hiddenFiles");
     boolean closeMenu = props.getBoolean("closeMenu");
@@ -93,11 +92,8 @@ public class RNFileSelectorModule extends ReactContextBaseJavaModule {
 
     picker = picker.withFilterDirectories(filterDirectories);
 
-    if (rootPath.length() > 0) {
-      picker = picker.withRootPath(rootPath);
-    }
     if (path.length() > 0) {
-      picker = picker.withPath(path);
+      picker = picker.withRootPath(path);
     }
 
     picker = picker.withHiddenFiles(hiddenFiles);
