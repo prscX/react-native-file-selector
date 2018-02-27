@@ -9,10 +9,10 @@
   <a href="https://github.com/prscX/react-native-file-selector#License"><img src="https://img.shields.io/npm/l/react-native-file-selector.svg?style=flat" /></a>
 </p>
 
-This library is a ReactNative Bridge around native [MaterialFilePicker](https://github.com/nbsp-team/MaterialFilePicker) & [marmelroy/FileBrowser](https://github.com/marmelroy/FileBrowser) file picker. It allows you to natively select/pick file from device file system. 
+This library is a ReactNative Bridge around native [nbsp-team/MaterialFilePicker/](https://github.com/nbsp-team/MaterialFilePicker) & [marmelroy/FileBrowser](https://github.com/marmelroy/FileBrowser) file picker. It allows you to natively select/pick file from device file system. 
 
 
-- Android: [MaterialFilePicker](https://github.com/nbsp-team/MaterialFilePicker)
+- Android: [nbsp-team/MaterialFilePicker/](https://github.com/nbsp-team/MaterialFilePicker)
 
 > **Note**: It allows you to pick file without using Intent/Third Party Software
 
@@ -125,7 +125,7 @@ RNFileSelector.Show(
 
 ## Credits
 
-- Android: [MaterialFilePicker](https://github.com/nbsp-team/MaterialFilePicker)
+- Android: [nbsp-team/MaterialFilePicker/](https://github.com/nbsp-team/MaterialFilePicker)
 - iOS: [marmelroy/FileBrowser](https://github.com/marmelroy/FileBrowser)
 
 ## Contribution
