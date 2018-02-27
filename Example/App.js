@@ -35,7 +35,7 @@ export default class App extends Component<Props> {
     if (Platform.OS === 'ios') {
       filter = ["gif", "jpg"];
     } else if (Platform.OS === 'android') {
-      filter = ".*\\.jpg$";
+      filter = ".*\\.*";
     }
 
 

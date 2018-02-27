@@ -18,6 +18,12 @@ This library is a ReactNative Bridge around native [MaterialFilePicker](https://
 
 ![](https://i.imgur.com/mjxs05n.png)
 
+- iOS: [marmelroy/FileBrowser](https://github.com/marmelroy/FileBrowser)
+
+> **Note**: It allows you to select only local files associate to app sandbox.
+
+![](https://camo.githubusercontent.com/5ea19d119a5426eeca3edbe750c280617f804aa0/687474703a2f2f692e67697068792e636f6d2f336f3667615936794c516b686a696f6b35572e676966)
+
 
 ## Getting started
 `$ npm install react-native-file-selector --save`
@@ -46,6 +52,27 @@ repositories {
 
 > **Note**: Android library works `compileSdkVersion > 25`
 
+#### **iOS**
+
+- Add below snippet in your app `AppDelegate.m`. This basically adds navigation controller in order to push list of files screen
+
+```
+  UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+  navigationController.navigationBar.hidden = YES;
+
+  self.window.rootViewController = navigationController;
+
+//  self.window.rootViewController = rootViewController;
+
+```
+
+- Add `FileBrowser` in Embedded Binaries & Linked Frameworks and Libraries. You can find this library from below path:
+
+`node_modules/react-native-file-selector/ios/FileBrowser/FileBrowser.xcodeproj`
+
+<img src="./assets/setup.png" />
+
+- 
 
 ## Usage
 
@@ -95,13 +122,11 @@ RNFileSelector.Show(
 | `visible`      | `bool`     |    false     | To invoke file selector | |
 
 
-## TO DO
-- iOS Support
-
 
 ## Credits
 
 - Android: [MaterialFilePicker](https://github.com/nbsp-team/MaterialFilePicker)
+- iOS: [marmelroy/FileBrowser](https://github.com/marmelroy/FileBrowser)
 
 ## Contribution
 Contributions are welcome and are greatly appreciated! Every little bit helps, and credit will always be given.
