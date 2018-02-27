@@ -112,15 +112,19 @@ RNFileSelector.Show(
 | ----------------- | ---------- | ------- | ---------------------------------------------------------------------------------------------------------- |
 | `title`       | `string`     |         | Title on the toolbar
 | `closeMenu`      | `string`     |   true      | Color of tint
-| `hiddenFiles`       | `bool`     |  false       | If true it shows hidden files as well                                                            |
-| `rootPath`     | `string` |         | Root path of device storage                                                      |
+| `hiddenFiles: Android`       | `bool`     |  false       | If true it shows hidden files as well                                                            |
 | `path` | `string` |         | Path of directory                                                   |  |
 | `filter`    | `string`     |         | Filter to sort the files                                        |  |
-| `filterDirectories`      | `bool`     |         | Filter should be applied on directories or not 
+| `filterDirectories: Android`      | `bool`     |         | Filter should be applied on directories or not 
 | `onDone`      | `func`     |         | Function called when file is selected       |  |
 | `onCancel`      | `func`     |         | Function called when file selector is closed without selecting any file | |
 | `visible`      | `bool`     |    false     | To invoke file selector | |
 
+
+> **Note**
+> - **Filter**
+>    - **Android:** Please find [regex/Pattern](https://developer.android.com/reference/java/util/regex/Pattern.html) for defining filter
+>    - **iOS:** Array of file extension needs to be ignore
 
 
 ## Credits
