@@ -33,7 +33,7 @@ export default class App extends Component<Props> {
   _onPress () {
     let filter;
     if (Platform.OS === 'ios') {
-      filter = ["gif", "jpg"];
+      filter = [];
     } else if (Platform.OS === 'android') {
       filter = ".*\\.*";
     }
