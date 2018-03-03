@@ -12,17 +12,19 @@
 This library is a ReactNative Bridge around native [nbsp-team/MaterialFilePicker/](https://github.com/nbsp-team/MaterialFilePicker) & [marmelroy/FileBrowser](https://github.com/marmelroy/FileBrowser) file picker. It allows you to natively select/pick file from device file system. 
 
 
-- Android: [nbsp-team/MaterialFilePicker/](https://github.com/nbsp-team/MaterialFilePicker)
+| **Android: [nbsp-team/MaterialFilePicker/](https://github.com/nbsp-team/MaterialFilePicker)**             |
+| ----------------- |
+| <img src="https://i.imgur.com/mjxs05n.png" width="600" height="600" />                  |
+
 
 > **Note**: It allows you to pick file without using Intent/Third Party Software
 
-![](https://i.imgur.com/mjxs05n.png)
+| **iOS: [marmelroy/FileBrowser](https://github.com/marmelroy/FileBrowser)**             |
+| ----------------- |
+| <img src="https://camo.githubusercontent.com/5ea19d119a5426eeca3edbe750c280617f804aa0/687474703a2f2f692e67697068792e636f6d2f336f3667615936794c516b686a696f6b35572e676966" width="600" height="600" />                  |
 
-- iOS: [marmelroy/FileBrowser](https://github.com/marmelroy/FileBrowser)
 
 > **Note**: It allows you to select only local files associate to app sandbox.
-
-![](https://camo.githubusercontent.com/5ea19d119a5426eeca3edbe750c280617f804aa0/687474703a2f2f692e67697068792e636f6d2f336f3667615936794c516b686a696f6b35572e676966)
 
 
 ## Getting started
