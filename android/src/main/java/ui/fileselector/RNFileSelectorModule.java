@@ -24,8 +24,6 @@ import java.util.regex.Pattern;
 
 public class RNFileSelectorModule extends ReactContextBaseJavaModule {
 
-  private final ReactApplicationContext reactContext;
-
   public static final int PERMISSIONS_REQUEST_CODE = 0;
   public static final int FILE_PICKER_REQUEST_CODE = 1;
 
@@ -34,9 +32,8 @@ public class RNFileSelectorModule extends ReactContextBaseJavaModule {
 
   public RNFileSelectorModule(ReactApplicationContext reactContext) {
     super(reactContext);
-    this.reactContext = reactContext;
 
-    this.reactContext.addActivityEventListener(new ActivityEventListener());
+    getReactApplicationContext().addActivityEventListener(new ActivityEventListener());
   }
 
   @Override
@@ -56,12 +53,12 @@ public class RNFileSelectorModule extends ReactContextBaseJavaModule {
   private boolean checkPermissionsAndOpenFilePicker() {
     String permission = Manifest.permission.READ_EXTERNAL_STORAGE;
 
-    if (ContextCompat.checkSelfPermission(reactContext.getCurrentActivity(), permission) != PackageManager.PERMISSION_GRANTED) {
-      if (ActivityCompat.shouldShowRequestPermissionRationale(reactContext.getCurrentActivity(), permission)) {
+    if (ContextCompat.checkSelfPermission(getCurrentActivity(), permission) != PackageManager.PERMISSION_GRANTED) {
+      if (ActivityCompat.shouldShowRequestPermissionRationale(getCurrentActivity(), permission)) {
         showError();
         return false;
       } else {
-        ActivityCompat.requestPermissions(reactContext.getCurrentActivity(), new String[]{permission}, PERMISSIONS_REQUEST_CODE);
+        ActivityCompat.requestPermissions(getCurrentActivity(), new String[]{permission}, PERMISSIONS_REQUEST_CODE);
         return true;
       }
     }
@@ -70,13 +67,13 @@ public class RNFileSelectorModule extends ReactContextBaseJavaModule {
   }
 
   private void showError() {
-    Toast.makeText(reactContext.getCurrentActivity(), "Allow external storage reading", Toast.LENGTH_SHORT).show();
+    Toast.makeText(getCurrentActivity(), "Allow external storage reading", Toast.LENGTH_SHORT).show();
   }
 
 
   private void openFilePicker(final ReadableMap props, final Callback onDone, final Callback onCancel) {
     MaterialFilePicker picker = new MaterialFilePicker();
-    picker = picker.withActivity(reactContext.getCurrentActivity());
+    picker = picker.withActivity(getCurrentActivity());
     picker = picker.withRequestCode(1);
 
     String filter = props.getString("filter");

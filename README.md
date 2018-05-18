@@ -41,8 +41,22 @@ repositories {
     maven {
         url  "http://dl.bintray.com/lukaville/maven"
     }
+    google()
+    ...
+}
+
+allprojects {
+    repositories {
+        mavenLocal()
+        jcenter()
+        google()
+        ...
+    }
 }
 ```
+
+> **Note:** This library is supported Android 27 > above
+
 
 - Add below color attributes in your app `res/color.xml`. You can provide your own color codes
 

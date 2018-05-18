@@ -1,6 +1,6 @@
 {
     "name": "react-native-file-selector",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "React Native: Native File Selector",
     "main": "RNFileSelector.js",
     "scripts": {
