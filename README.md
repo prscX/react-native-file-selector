@@ -1,7 +1,6 @@
 
 
-
-# React Native: Native File Selector (Android & iOS)
+<h1 align="center">
 
 <p align="center">
   <a href="https://www.npmjs.com/package/react-native-file-selector"><img src="http://img.shields.io/npm/v/react-native-file-selector.svg?style=flat" /></a>
@@ -9,7 +8,12 @@
   <a href="https://github.com/prscX/react-native-file-selector#License"><img src="https://img.shields.io/npm/l/react-native-file-selector.svg?style=flat" /></a>
 </p>
 
-This library is a ReactNative Bridge around native [nbsp-team/MaterialFilePicker/](https://github.com/nbsp-team/MaterialFilePicker) & [marmelroy/FileBrowser](https://github.com/marmelroy/FileBrowser) file picker. It allows you to natively select/pick file from device file system. 
+    ReactNative: Native File Selector (Android/iOS)
+
+If this project has helped you out, please support us with a star 🌟
+</h1>
+
+This library is a ReactNative Bridge around native libraries. It allows you to natively select/pick file from device file system:
 
 
 | **Android: [nbsp-team/MaterialFilePicker/](https://github.com/nbsp-team/MaterialFilePicker)**             |
@@ -27,7 +31,7 @@ This library is a ReactNative Bridge around native [nbsp-team/MaterialFilePicker
 > **Note**: It allows you to select only local files associate to app sandbox.
 
 
-## Getting started
+## 📖 Getting started
 `$ npm install react-native-file-selector --save`
 
 `$ react-native link react-native-file-selector`
@@ -90,7 +94,7 @@ allprojects {
 
 - 
 
-## Usage
+## 💻 Usage
 
 `import RNFileSelector from 'react-native-file-selector';`
 
@@ -121,7 +125,7 @@ RNFileSelector.Show(
 ```
 
 
-## Props
+## 💡 Props
 
 
 | Prop              | Type       | Default | Note                                                                                                       |
@@ -143,16 +147,35 @@ RNFileSelector.Show(
 >    - **iOS:** Array of file extension needs to be ignore
 
 
-## Credits
+## ✨ Credits
 
 - Android: [nbsp-team/MaterialFilePicker/](https://github.com/nbsp-team/MaterialFilePicker)
 - iOS: [marmelroy/FileBrowser](https://github.com/marmelroy/FileBrowser)
 
-## Contribution
+## 🤔 How to contribute
+Have an idea? Found a bug? Please raise to [ISSUES](https://github.com/prscX/react-native-file-selector/issues).
 Contributions are welcome and are greatly appreciated! Every little bit helps, and credit will always be given.
 
-## License
-This library is provided under the MIT License.
+## 💫 Where is this library used?
+If you are using this library in one of your projects, add it in this list below. ✨
 
-RNFileSelector @ Pranav Raj Singh Chauhan
 
+## 📜 License
+This library is provided under the Apache License.
+
+RNFileSelector @ [prscX](https://github.com/prscX)
+
+## 💖 Support my projects
+I open-source almost everything I can, and I try to reply everyone needing help using these projects. Obviously, this takes time. You can integrate and use these projects in your applications for free! You can even change the source code and redistribute (even resell it).
+
+However, if you get some profit from this or just want to encourage me to continue creating stuff, there are few ways you can do it:
+* Starring and sharing the projects you like 🚀
+* If you're feeling especially charitable, please follow [prscX](https://github.com/prscX) on GitHub.
+
+  <a href="https://www.buymeacoffee.com/prscX" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+
+  Thanks! ❤️
+  <br/>
+  [prscX.github.io](https://prscx.github.io)
+  <br/>
+  </ Pranav >

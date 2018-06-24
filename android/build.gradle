@@ -2,7 +2,7 @@
 buildscript {
     repositories {
         jcenter()
-        google()
+        maven { url "https://maven.google.com" }
     }
 
     dependencies {
@@ -28,10 +28,10 @@ android {
 
 repositories {
     mavenCentral()
+    maven { url "https://maven.google.com" }
     maven {
         url  "http://dl.bintray.com/lukaville/maven"
     }
-    google()
 }
 
 dependencies {
