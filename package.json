@@ -19,7 +19,7 @@
         "immutable": "3.8.2"
     },
     "devDependencies": {
-        "prettier-pack": "0.0.6"
+        "prettier-pack": "0.0.7"
     },
     "peerDependencies": {}
 }
