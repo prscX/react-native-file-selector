@@ -4,7 +4,8 @@
     "description": "React Native: Native File Selector",
     "main": "RNFileSelector.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "postinstall": "node ../pod-installer/index.js"
     },
     "keywords": [
         "react-native"
@@ -16,7 +17,7 @@
         "url": "https://github.com/prscX/react-native-file-selector.git"
     },
     "dependencies": {
-        "immutable": "3.8.2"
+        "pod-installer": "0.0.0"
     },
     "devDependencies": {
         "prettier-pack": "0.0.7"

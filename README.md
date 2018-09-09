@@ -18,14 +18,14 @@ This library is a ReactNative Bridge around native libraries. It allows you to n
 
 | **Android: [nbsp-team/MaterialFilePicker/](https://github.com/nbsp-team/MaterialFilePicker)**             |
 | ----------------- |
-| <img src="https://i.imgur.com/mjxs05n.png" height="600" />                  |
+| <img src="https://i.imgur.com/mjxs05n.png" />                  |
 
 
 > **Note**: It allows you to pick file without using Intent/Third Party Software
 
 | **iOS: [marmelroy/FileBrowser](https://github.com/marmelroy/FileBrowser)**             |
 | ----------------- |
-| <img src="https://camo.githubusercontent.com/5ea19d119a5426eeca3edbe750c280617f804aa0/687474703a2f2f692e67697068792e636f6d2f336f3667615936794c516b686a696f6b35572e676966" height="600" />                  |
+| <img src="https://camo.githubusercontent.com/5ea19d119a5426eeca3edbe750c280617f804aa0/687474703a2f2f692e67697068792e636f6d2f336f3667615936794c516b686a696f6b35572e676966" />                  |
 
 
 > **Note**: It allows you to select only local files associate to app sandbox.
@@ -45,7 +45,7 @@ repositories {
     maven {
         url  "http://dl.bintray.com/lukaville/maven"
     }
-    google()
+    maven { url "https://maven.google.com" }
     ...
 }
 
@@ -53,7 +53,7 @@ allprojects {
     repositories {
         mavenLocal()
         jcenter()
-        google()
+        maven { url "https://maven.google.com" }
         ...
     }
 }
@@ -70,9 +70,14 @@ allprojects {
     <color name="colorAccent">#FF4081</color>
 ```
 
-> **Note**: Android library works `compileSdkVersion > 25`
-
 #### **iOS**
+
+- After `react-native link react-native-file-selector`, please verify `node_modules/react-native-file-selector/ios/` contains `Pods` folder. If does not exist please execute `pod install` command on `node_modules/react-native-file-selector/ios/`, if any error => try `pod repo update` then `pod install`
+- After verification, open your project and create a folder 'RNFileSelector' under Libraries.
+- Drag `node_modules/react-native-file-selector/ios/pods/Pods.xcodeproject` into RNFileSelector, as well as the RNFileSelector.xcodeproject if it does not exist.
+- Add the `FileBrowser.framework` into your project's `Embedded Binaries` and make sure the framework is also in linked libraries.
+- Go to your project's `Build Settings -> Frameworks Search Path` and add `${BUILT_PRODUCTS_DIR}/FileBrowser` non-recursive.
+
 
 - Add below snippet in your app `AppDelegate.m`. This basically adds navigation controller in order to push list of files screen
 
@@ -86,9 +91,7 @@ allprojects {
 
 ```
 
-- Add `FileBrowser` in Embedded Binaries & Linked Frameworks and Libraries. You can find this library from below path:
-
-`node_modules/react-native-file-selector/ios/FileBrowser/FileBrowser.xcodeproj`
+- Now build your iOS app through Xcode
 
 <img src="./assets/setup.png" />
 

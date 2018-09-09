@@ -1,13 +1,11 @@
 
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { ViewPropTypes, NativeModules, Platform } from "react-native";
 import PropTypes from "prop-types";
-
-import { is } from 'immutable'
     
 const { RNFileSelector } = NativeModules;
 
-class FileSelector extends Component {
+class FileSelector extends PureComponent {
   static propTypes = {
     ...ViewPropTypes,
 
@@ -63,14 +61,6 @@ class FileSelector extends Component {
       }, () => {
         props.onCancel && props.onCancel()
       });
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    if (is(this.props, nextProps)) {
-      return false;
-    } else {
-      return true;
-    }
   }
 
   componentDidMount() {
