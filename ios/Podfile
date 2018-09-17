@@ -6,6 +6,16 @@ target 'RNFileSelector' do
   use_frameworks!
 
   # Pods for RNFileSelector
-  pod 'FileBrowser'
+  pod 'FileBrowser', :git => 'https://github.com/prscX/FileBrowser'
+
+  post_install do |installer|
+    installer.pods_project.targets.each do |target|
+      if target.name.include?('FileBrowser')
+        target.build_configurations.each do |config|
+          config.build_settings['SWIFT_VERSION'] = '4.1'
+        end
+      end
+    end
+  end
 
 end
