@@ -26,14 +26,13 @@ public class RNFileSelectorModule extends ReactContextBaseJavaModule {
 
   public static final int PERMISSIONS_REQUEST_CODE = 0;
   public static final int FILE_PICKER_REQUEST_CODE = 1;
+  private static final String NAME = "RNFileSelectorModule";
 
   private Callback onDone;
   private Callback onCancel;
 
   public RNFileSelectorModule(ReactApplicationContext reactContext) {
     super(reactContext);
-
-    getReactApplicationContext().addActivityEventListener(new ActivityEventListener());
   }
 
   @Override
@@ -72,6 +71,7 @@ public class RNFileSelectorModule extends ReactContextBaseJavaModule {
 
 
   private void openFilePicker(final ReadableMap props, final Callback onDone, final Callback onCancel) {
+    getReactApplicationContext().addActivityEventListener(new ActivityEventListener());
     MaterialFilePicker picker = new MaterialFilePicker();
     picker = picker.withActivity(getCurrentActivity());
     picker = picker.withRequestCode(1);
@@ -80,7 +80,8 @@ public class RNFileSelectorModule extends ReactContextBaseJavaModule {
     boolean filterDirectories = props.getBoolean("filterDirectories");
     String path = props.getString("path");
     boolean hiddenFiles = props.getBoolean("hiddenFiles");
-    boolean closeMenu = props.getBoolean("closeMenu");
+    // boolean closeMenu = props.getBoolean("closeMenu");
+    boolean closeMenu = false;
     String title = props.getString("title");
 
     if (filter.length() > 0) {
@@ -108,12 +109,25 @@ public class RNFileSelectorModule extends ReactContextBaseJavaModule {
 
     @Override
     public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
-
+      if (onCancel == null || onDone == null) {
+        return;
+      }
       if (requestCode == 1 && resultCode == AppCompatActivity.RESULT_OK) {
-        String filePath = data.getStringExtra(FilePickerActivity.RESULT_FILE_PATH);
-        onDone.invoke(filePath);
-      } else if (requestCode == 1 && resultCode == AppCompatActivity.RESULT_CANCELED) {
-        onCancel.invoke();
+        try {
+          String filePath = data.getStringExtra(FilePickerActivity.RESULT_FILE_PATH);
+          if (onDone != null && filePath != null) {
+            onDone.invoke(filePath);
+          }
+        } catch(Exception e) {
+          Log.e(NAME, "RNFileSelectorModule error " + e.getMessage());
+        }
+      } else if (onCancel != null && requestCode == 1 && resultCode == AppCompatActivity.RESULT_CANCELED) {
+        onCancel.invoke("No data", null);
+      }
+      try {
+        getReactApplicationContext().removeActivityEventListener(this);
+      } catch (Exception e) {
+        Log.e(NAME, " RNFileSelectorModule Cannot unregister receiver", e);
       }
     }
 
