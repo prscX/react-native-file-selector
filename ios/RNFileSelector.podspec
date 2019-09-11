@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
                   RNFileSelector
                    DESC
-  s.homepage     = ""
+  s.homepage     = "https://github.com/prscX/react-native-file-selector"
   s.license      = "MIT"
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
   s.author             = { "author" => "author@domain.cn" }
