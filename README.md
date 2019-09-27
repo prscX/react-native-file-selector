@@ -34,6 +34,54 @@ This library is a ReactNative Bridge around native libraries. It allows you to n
 ## 📖 Getting started
 `$ npm install react-native-file-selector --save`
 
+## **RN60 >= RNFS V1 >**
+
+> RN60 above please use `react-native-file-selector` V1 and above
+
+- **iOS**
+
+> **iOS Prerequisite:** Please make sure `CocoaPods` is installed on your system
+
+	- Add the following to your `Podfile` -> `ios/Podfile` and run pod update:
+
+
+```
+  use_native_modules!
+
+  pod 'RNFileSelector', :path => '../node_modules/react-native-file-selector/ios'
+
+  use_frameworks!
+
+  pod 'FileBrowser', :git => 'https://github.com/prscX/FileBrowser'
+```
+
+- **Android**
+
+- Add below snippet in your app `build.gradle` file
+
+```
+allprojects {
+    repositories {
+        maven {
+            url  "http://dl.bintray.com/lukaville/maven"
+        }
+        ...
+    }
+}
+```
+
+- Add below color attributes in your app `res/color.xml`. You can provide your own color codes
+
+```
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+```
+
+## **RN60 < RNFS V1 <**
+
+> RN60 below please use `react-native-file-selector` V.0.*
+
 `$ react-native link react-native-file-selector`
 
 #### **Android**
