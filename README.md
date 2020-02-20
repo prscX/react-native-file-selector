@@ -57,7 +57,7 @@ This library is a ReactNative Bridge around native libraries. It allows you to n
 
 - **Android**
 
-- Add below snippet in your app `build.gradle` file
+- Add below snippet in your app's  `android/build.gradle` file
 
 ```
 allprojects {
@@ -70,12 +70,15 @@ allprojects {
 }
 ```
 
-- Add below color attributes in your app `res/color.xml`. You can provide your own color codes
+- Add below color attributes in your app's `android/app/src/main/res/values/color.xml` file. You can provide your own color codes.
 
 ```
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <?xml version="1.0" encoding="utf-8"?>
+    <resources>
+        <color name="colorPrimary">#3F51B5</color>
+        <color name="colorPrimaryDark">#303F9F</color>
+        <color name="colorAccent">#FF4081</color>
+    </resources>
 ```
 
 ## **RN60 < RNFS V1 <**
