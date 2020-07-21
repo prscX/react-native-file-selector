@@ -1,26 +1,25 @@
 {
     "name": "react-native-file-selector",
-    "version": "0.0.6",
+    "version": "1.0.0",
     "description": "React Native: Native File Selector",
     "main": "RNFileSelector.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "postinstall": "node ../pod-installer/index.js"
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [
         "react-native"
     ],
     "author": "Pranav Raj Singh Chauhan",
     "license": "Apache License",
+    "homepage": "https://github.com/prscX/react-native-file-selector.git",
     "repository": {
         "type": "git",
         "url": "https://github.com/prscX/react-native-file-selector.git"
     },
     "dependencies": {
-        "pod-installer": "0.0.0"
     },
     "devDependencies": {
-        "prettier-pack": "0.0.7"
+        "prettier-pack": "0.0.8"
     },
     "peerDependencies": {}
 }

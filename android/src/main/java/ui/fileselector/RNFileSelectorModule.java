@@ -5,9 +5,9 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -113,21 +113,19 @@ public class RNFileSelectorModule extends ReactContextBaseJavaModule {
         return;
       }
       if (requestCode == 1 && resultCode == AppCompatActivity.RESULT_OK) {
-        try {
-          String filePath = data.getStringExtra(FilePickerActivity.RESULT_FILE_PATH);
-          if (onDone != null && filePath != null) {
-            onDone.invoke(filePath);
-          }
-        } catch(Exception e) {
-          Log.e(NAME, "RNFileSelectorModule error " + e.getMessage());
+        String filePath = data.getStringExtra(FilePickerActivity.RESULT_FILE_PATH);
+
+        if (onDone != null) {
+          onDone.invoke(filePath);
         }
-      } else if (onCancel != null && requestCode == 1 && resultCode == AppCompatActivity.RESULT_CANCELED) {
-        onCancel.invoke("No data", null);
-      }
-      try {
-        getReactApplicationContext().removeActivityEventListener(this);
-      } catch (Exception e) {
-        Log.e(NAME, " RNFileSelectorModule Cannot unregister receiver", e);
+
+        onDone = null;
+      } else if (requestCode == 1 && resultCode == AppCompatActivity.RESULT_CANCELED) {
+        if (onCancel != null) {
+          onCancel.invoke();
+        }
+
+        onCancel = null;
       }
     }
 
