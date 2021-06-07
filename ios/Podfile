@@ -6,7 +6,7 @@ target 'RNFileSelector' do
   use_frameworks!
 
   # Pods for RNFileSelector
-  pod 'FileBrowser', :git => 'https://github.com/prscX/FileBrowser'
+  pod 'FileBrowser', :git => 'https://github.com/Kevin452/FileBrowser.git'
 
   post_install do |installer|
     installer.pods_project.targets.each do |target|
