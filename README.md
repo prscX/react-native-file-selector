@@ -57,19 +57,6 @@ This library is a ReactNative Bridge around native libraries. It allows you to n
 
 - **Android**
 
-- Add below snippet in your app's  `android/build.gradle` file
-
-```
-allprojects {
-    repositories {
-        maven {
-            url  "http://dl.bintray.com/lukaville/maven"
-        }
-        ...
-    }
-}
-```
-
 - Add below color attributes in your app's `android/app/src/main/res/values/color.xml` file. You can provide your own color codes.
 
 ```
