@@ -33,14 +33,11 @@ android {
 repositories {
     mavenCentral()
     maven { url "https://maven.google.com" }
-    maven {
-        url  "http://dl.bintray.com/lukaville/maven"
-    }
 }
 
 dependencies {
-    compile 'com.nbsp:library:1.8'
-    compile 'com.android.support:appcompat-v7:27.0.2'
-    compile 'com.android.support:support-v4:27.0.2'
-    compile 'com.facebook.react:react-native:+'
+    implementation 'com.nbsp:materialfilepicker:1.9.1'
+    implementation 'com.android.support:appcompat-v7:27.0.2'
+    implementation 'com.android.support:support-v4:27.0.2'
+    implementation 'com.facebook.react:react-native:+'
 }
