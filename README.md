@@ -34,8 +34,6 @@ This library is a ReactNative Bridge around native libraries. It allows you to n
 ## 📖 Getting started
 `$ npm install react-native-file-selector --save`
 
-## **RN60 >= RNFS V1 >**
-
 > This library is supports RN60 and above
 
 - **iOS**
