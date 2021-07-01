@@ -36,7 +36,7 @@ This library is a ReactNative Bridge around native libraries. It allows you to n
 
 ## **RN60 >= RNFS V1 >**
 
-> RN60 above please use `react-native-file-selector` V1 and above
+> This library is supports RN60 and above
 
 - **iOS**
 
@@ -88,73 +88,6 @@ This library is a ReactNative Bridge around native libraries. It allows you to n
         <color name="colorAccent">#FF4081</color>
     </resources>
 ```
-
-## **RN60 < RNFS V1 <**
-
-> RN60 below please use `react-native-file-selector` V.0.*
-
-`$ react-native link react-native-file-selector`
-
-#### **Android**
-
-- Add below snippet in your app `build.gradle` file
-
-```
-repositories {
-    maven {
-        url  "http://dl.bintray.com/lukaville/maven"
-    }
-    maven { url "https://maven.google.com" }
-    ...
-}
-
-allprojects {
-    repositories {
-        mavenLocal()
-        jcenter()
-        maven { url "https://maven.google.com" }
-        ...
-    }
-}
-```
-
-> **Note:** This library is supported Android 27 > above
-
-
-- Add below color attributes in your app `res/color.xml`. You can provide your own color codes
-
-```
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-```
-
-#### **iOS**
-
-- After `react-native link react-native-file-selector`, please verify `node_modules/react-native-file-selector/ios/` contains `Pods` folder. If does not exist please execute `pod install` command on `node_modules/react-native-file-selector/ios/`, if any error => try `pod repo update` then `pod install`
-- After verification, open your project and create a folder 'RNFileSelector' under Libraries.
-- Drag `node_modules/react-native-file-selector/ios/pods/Pods.xcodeproject` into RNFileSelector, as well as the RNFileSelector.xcodeproject if it does not exist.
-- Add the `FileBrowser.framework` into your project's `Embedded Binaries` and make sure the framework is also in linked libraries.
-- Go to your project's `Build Settings -> Frameworks Search Path` and add `${BUILT_PRODUCTS_DIR}/FileBrowser` non-recursive.
-
-
-- Add below snippet in your app `AppDelegate.m`. This basically adds navigation controller in order to push list of files screen
-
-```
-  UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
-  navigationController.navigationBar.hidden = YES;
-
-  self.window.rootViewController = navigationController;
-
-//  self.window.rootViewController = rootViewController;
-
-```
-
-- Now build your iOS app through Xcode
-
-<img src="./assets/setup.png" />
-
-- 
 
 ## 💻 Usage
 
